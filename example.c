@@ -1,18 +1,48 @@
-#include<stdio.h>
+#include <stdio.h>
+
 int main(void){
-  int number,i,j,control=1;
-  printf("Enter a positive number: ");
-  scanf("%d",&number);
-  for(i=2;i<=number;i++){
-    for(j=2;j<=i/2;j++){
-      if(i%j==0){
-        control=0;
-        break;
-      }
-    }
-    if(control!=0){
-      printf("%d",i);
-    }
-  }
-  return (0);
+	float tutar,bakiye=0.0;
+	int x;
+	
+	do{
+		printf("\nBankacilik Islemleri\n");
+		printf("1 - Para Yatirma\n");
+		printf("2 - Para Cekme\n");
+		printf("3 - Bakiye Sorgulama\n");
+		printf("4 - Cikis\n");
+		printf("Yapmak istediginiz islem: ");
+		scanf("%d",&x);
+		
+		switch(x){
+			case 1:
+				printf("Yatiralacak tutar: ");
+				scanf("%f",&tutar);
+				bakiye+=tutar;
+				printf("Yeni bakiye: %f\n",bakiye);
+				break;
+			case 2:
+				printf("Cekilecek tutar: ");
+				scanf("%f",&tutar);
+				if(tutar>bakiye){
+					printf("Yetersiz bakiye.Islem yapilamadi.\n");
+				}
+				else{
+					bakiye-=tutar;
+					printf("Yeni bakiye: %f\n",bakiye);
+				}
+				break;
+			case 3:
+				printf("Bakiye: %f\n",bakiye);
+				break;
+			case 4:
+				printf("Cikis yapiliyor.\n");
+				break;
+			default:
+				printf("Hatali secim yaptiniz.Tekrar deneyiniz.\n");
+		}
+	}while(x!=4);
+	
+	
+	
+	return (0);
 }
