@@ -1,0 +1,36 @@
+#include<stdio.h>
+
+int main(void){
+
+  int dizi[] = {1,4,6,2,7,10,4,10,1,9,8};
+
+  int i,j,sayac,x= sizeof(dizi)/sizeof(dizi[0]);
+
+  printf("Tekrar eden elemanlar\n");
+
+  for(i=0;i<x;i++){
+
+    sayac=0;
+
+    for(j=i+1;j<x;j++){
+
+      if(dizi[i]==dizi[j]){
+
+        sayac++;
+
+      }
+
+   }
+
+   if(sayac>0){
+
+     printf("%d\n",dizi[i]);
+
+   }
+
+ }
+
+  return (0);
+
+}
+
